@@ -1,0 +1,245 @@
+.header {
+  &__subdiv {
+    padding-top: 1.8rem;
+    padding-bottom: 1.62rem;
+  }
+
+  &__container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1180px;
+  }
+
+  &__logo {
+    margin: 0.31rem auto;
+  }
+
+  &__search {
+    float: right;
+  }
+
+  &__div {
+    border-top: 1px solid #E9E9E9;
+    border-bottom: 1px solid #E9E9E9;
+  }
+
+  &__dropdown {
+    position: relative;
+    display: inline-block;
+    padding-top: 1.34rem;
+    padding-bottom: 1.22rem;
+    font-size: 1rem;
+    line-height: 1;
+    font-weight: 500;
+    cursor: pointer;
+    span {
+      margin-right: 0.5rem;
+    }
+    span:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 1.5rem;
+      right: 0;
+      display: inline-block;
+      border-right: 1px solid $black;
+      border-bottom: 1px solid $black;
+      width: 7px;
+      height: 7px;
+      transform: translate(5px, calc(-50% + 4px)) rotate(45deg);
+    }
+  }
+
+  &__dropdown:not(:last-child) {
+    margin-right: 2rem;
+  }
+  
+  &__dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    border: 1px solid #E9E9E9;
+    margin-top: 1.25rem;
+    padding: 1.25rem;
+    background: $white;
+  }
+  
+  &__dropdown:hover &__dropdown-content {
+    display: block;
+  }
+
+  &__dropdown-list {
+    display: flex;
+    flex-direction: column;
+    width: 135px;
+  }
+
+  &__dropdown-link {
+    position: relative;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1;
+    transition: padding .3s, color .3s;
+  }
+
+  &__dropdown-link::after {
+    content: "";
+    position: absolute;
+    top: 11px;
+    right: 0.5rem;
+    display: inline-block;
+    border-right: 1px solid $black;
+    border-bottom: 1px solid $black;
+    width: 5px;
+    height: 5px;
+    transform: translate(5px, calc(-50% + 4px)) rotate(-45deg);
+  }
+
+  &__dropdown-link:hover {
+    padding-left: 0.5rem;
+    color: #969696;
+  }
+
+  &__dropdown-link:not(:last-child) {
+    border-bottom: 1px solid #E9E9E9;
+  }
+
+  &__burger,
+  &__menu-exit {
+    display: none;
+    cursor: pointer;
+  }
+  
+  &__burger {
+    width: 24px;
+    height: 16px; 
+  }
+  
+  &__menu-exit {
+    position: absolute;
+    top: 2rem;
+    right: 1.3rem;
+    width: 18px;
+    height: 18px;
+  }
+
+  &__subcube {
+    border-bottom: 1px solid #E9E9E9;
+    padding-bottom: 1.56rem;
+  }
+  
+  &__cube {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    display: none;
+    width: 320px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 2rem;
+    padding-bottom: 3.75rem;
+    background-color: $white;
+  }
+  
+  &__cube.is-opened {
+    display: flex;
+    animation-name: menu-open;
+    animation-duration: .5s;
+  }
+  
+  &__cube.is-closed {
+    animation-name: menu-close;
+    animation-duration: .5s;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@-webkit-keyframes menu-open {
+  from {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes menu-open {
+  from {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+  
+@-webkit-keyframes menu-close {
+  from {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  to {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes menu-close {
+  from {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  to {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 765px) {
+  .header {
+    &__dropdown:not(:last-child) {
+      margin-right: 1.82rem;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    &__div {
+      display: none;
+    }
+
+    &__logo-img {
+      width: 163px;
+      height: 24px;
+    }
+
+    &__burger,
+    &__menu-exit {
+      display: block;
+    }
+
+    &__search {
+      right: 1.25rem;
+    }
+
+    &__dropdown {
+      border-bottom: 1px solid #E9E9E9;
+    }
+  }
+}
